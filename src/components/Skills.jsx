@@ -1,20 +1,13 @@
-import React from 'react'
-import { IoLogoHtml5 } from "react-icons/io";
-import { IoLogoCss3 } from "react-icons/io5";
-import { IoLogoJavascript } from "react-icons/io5";
-import { IoLogoReact } from "react-icons/io5";
-import { SiTailwindcss } from "react-icons/si";
+import React from 'react';
+import { IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoReact, IoLogoNodejs } from "react-icons/io5";
+import { SiTailwindcss, SiSolidity, SiWagmi } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiSolidity } from "react-icons/si";
-import { SiWagmi } from "react-icons/si";
-import { FaHardHat } from "react-icons/fa";
-import { IoLogoNodejs } from "react-icons/io5";
+import { FaHardHat, FaGithub } from "react-icons/fa";
 import { GrMysql } from "react-icons/gr";
-import { FaGithub } from "react-icons/fa";
 
 const Skills = () => {
   return (
-    <div className='flex flex-col gap-4 items-center mt-30'>
+    <div className='flex flex-col gap-4 items-center mt-30' id='skills'>
       <h1 className='text-4xl  font-bold'>My Stack</h1>
       <h3 className='text-2xl text-[#7B61FF]'>Frontend</h3>
       <div className='flex gap-5'>

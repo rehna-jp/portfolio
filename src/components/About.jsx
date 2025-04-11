@@ -1,10 +1,14 @@
 import React from 'react'
+import FadeIn from './FadeIn'
 
 const About = () => {
   return (
-    <div className='flex flex-col gap-4 my-12 bg-[#121212]  items-center px-52  py-25 w-full shadow-2xl mt-25'>
-        <h1 className='text-4xl font-bold mt-5'>About Me</h1>
-        <div className='border-gray border rounded-xl p-10 mb-2.5 gap-4 hover:shadow-[#7B61FF] hover:shadow-lg motion-safe:animate-pulse'>
+    <div className='flex flex-col gap-6 bg-[#121212]  items-center p-70 pt-20 pb-20 w-full shadow-2xl mt-25 ' id='about'>
+      <FadeIn delay={0.3}>
+        <h1 className='text-4xl font-bold mt-5 '>About Me</h1>
+      </FadeIn>
+      <FadeIn delay={0.5}>
+        <div className='border-[#3d3b3b] bg-black border rounded-xl p-10 mb-2.5 gap-4 hover:shadow-[#7B61FF] hover:shadow-sm transition-shadow duration-300 ease-in-out'>
             <p className='text-base/7 mb-7'>
                 Hey! I’m Precious — a passionate technologist who loves building things that matter. My journey into tech started with a curious question: “How are digital products built?” That question pulled me into the world of web development, and eventually, blockchain technology.
 
@@ -19,7 +23,8 @@ const About = () => {
             But beyond all the code, I’m someone who values balance. When I’m not coding, you’ll catch me spending time with friends and family, watching movies, playing video games, or enjoying a bit of sports.
             </p>
         </div>
-      
+      </FadeIn>
+       
     </div>
   )
 }

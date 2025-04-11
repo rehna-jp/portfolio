@@ -6,3 +6,11 @@ body{
   background-color: black;
   color: white;
 }
+html{
+  scroll-behavior: smooth;
+}
+.active-link {
+  border-bottom: 2px solid #7B61FF;
+  padding-bottom: 4px;
+  transition: all 0.1s ease;
+}
