@@ -27,7 +27,7 @@ const Navbar = () => {
                 duration={300}
                 offset={0}
                 onClick={() => setActiveLink(link.id)}
-                // onSetActive={() => setActiveLink(link.id)}
+                onSetActive={() => setActiveLink(link.id)}
                 className={activeLink === link.id ? 'active-link' : ''}
               >
                 {link.label}

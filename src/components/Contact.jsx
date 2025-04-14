@@ -1,10 +1,48 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import { FiGithub } from "react-icons/fi";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { BsTwitterX } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+
+  const form = useRef(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+    console.log("Form submitted!");
+
+    toast.loading('Sending message...');
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+  
+
+    
+      .then(() => {
+        console.log('Message sent!');
+        toast.dismiss();
+        toast.success('Message sent successfully! 🚀');
+        form.current?.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        toast.dismiss();
+        toast.error('Failed to send message 😔 Try again.');
+        
+      });
+  };
+
+
+
   return (
     <div className='mt-10 p-17 flex flex-col items-center gap-5 w-full' id='contact'>
         <h1 className='text-4xl font-bold'>Let's Connect</h1>
@@ -13,9 +51,10 @@ const Contact = () => {
 
             <div className='border border-[#3d3b3b] p-7 rounded-xl hover:shadow-sm hover:shadow-[#7B61FF] transition-shadow duration-400 ease-in-out'>
                  <h2 className='mb-4 font-medium'>Send me a message</h2>
-                 <form>
+                 <form ref={form} onSubmit={sendEmail}>
                    <label>Name</label><br />
                    <input
+                     name='user_name'
                      className='border border-[#3d3b3b] bg-[#121212] w-full max-w-[600px] px-4 py-2  rounded-md mb-3 mt-1 active:border-[#7B61FF] text-left placeholder:text-left'
                      type='text'
                      placeholder='Your name'
@@ -23,6 +62,7 @@ const Contact = () => {
     
                    <label>Email</label><br />
                    <input
+                     name='user_email'
                      className='border border-[#3d3b3b] bg-[#121212] w-full px-4 py-2  rounded-md mb-3 mt-1 text-left'
                      type='email'
                      placeholder='youremail@example.com'
@@ -30,12 +70,13 @@ const Contact = () => {
     
                    <label>Message</label><br />
                    <textarea
+                     name='message'
                      className='border border-[#3d3b3b] bg-[#121212] w-full px-4 py-2  rounded-md mb-4 mt-1 text-left resize-none'
                      placeholder='Your message here...'
                      rows="4" 
                    ></textarea><br />
     
-                   <button className='bg-[#7B61FF] px-20 py-1 w-full rounded-md hover:cursor-pointer'>Send Message</button>
+                   <button type='submit' className='bg-[#7B61FF] px-20 py-1 w-full rounded-md hover:cursor-pointer'>Send Message</button>
                  </form>
             </div>
 

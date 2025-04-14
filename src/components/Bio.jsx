@@ -20,8 +20,8 @@ const Bio = () => {
          </SlideIn>
          <SlideIn delay={0.9}>
          <div className='flex gap-4 '>
-           <buttton className='bg-[#7B61FF]  px-4 py-2 rounded-xl hover:cursor-pointer'><Link to='works'>View Projects</Link> </buttton>
-           <buttton className='border border-[#7B61FF] text-[#7B61FF] px-5 py-2 rounded-xl hover:cursor-pointer'><Link to='contact'>Contact Me</Link></buttton>
+         <Link to='works'className='bg-[#7B61FF]  px-4 py-2 rounded-xl hover:cursor-pointer'>View Projects </Link>
+         <Link to='contact' className='border border-[#7B61FF] text-[#7B61FF] px-5 py-2 rounded-xl hover:cursor-pointer'>Contact Me </Link>
          </div>
          </SlideIn>
         
