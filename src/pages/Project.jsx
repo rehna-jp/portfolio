@@ -1,10 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import ProjectsList from '../components/projects/ProjectsList'
+
 
 const Project = () => {
   return (
-    <div id='projects-page'>
-      
+    <div id='projects-page' className="min-h-screen bg-black text-white">
+      <ProjectsList />
     </div>
   )
 }
