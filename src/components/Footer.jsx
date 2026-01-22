@@ -16,12 +16,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left - Brand & Copyright */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-sm text-gray-400 text-center md:text-left">
-            <span>Designed & Built with</span>
-            <Heart className="w-4 h-4 text-[#7B61FF] fill-[#7B61FF]" />
-            <span>by Precious Jeremy</span>
+            <span> Precious Jeremy</span>
             <div className="flex items-center gap-2">
               <span className="text-[#7B61FF]">©</span>
-              <span>{new Date().getFullYear()}</span>
+              <span>{new Date().getFullYear()} All Rights Reserved</span>
             </div>
           </div>
 
