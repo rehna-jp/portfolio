@@ -2,41 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, ExternalLink, Github, ArrowRight } from 'lucide-react';
 import FadeIn from './FadeIn';
+import { projects } from './projects/ProjectsList';// adjust path to match your actual structure
 
 const Works = () => {
-  // Mock projects - replace with real data later
-  const projects = [
-    {
-      id: 1,
-      title: "DeFi Dashboard",
-      description: "A comprehensive Web3 dashboard for tracking DeFi portfolios across multiple chains with real-time analytics.",
-      tags: ["React", "Wagmi", "Tailwind"],
-      image: "https://via.placeholder.com/600x400/7B61FF/ffffff?text=DeFi+Dashboard",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      color: "from-[#7B61FF] to-[#6366f1]"
-    },
-    {
-      id: 2,
-      title: "NFT Marketplace",
-      description: "Modern NFT marketplace built with Next.js featuring minting, trading, and auction functionality.",
-      tags: ["Next.js", "Solidity", "Hardhat"],
-      image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=NFT+Marketplace",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      color: "from-[#6366f1] to-[#8b5cf6]"
-    },
-    {
-      id: 3,
-      title: "DAO Governance Platform",
-      description: "Decentralized autonomous organization platform with proposal creation, voting, and treasury management.",
-      tags: ["React", "Solidity", "Web3"],
-      image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=DAO+Platform",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      color: "from-[#8b5cf6] to-[#7B61FF]"
-    }
-  ];
+  const featuredProjects = projects.filter(p => p.featured);
 
   return (
     <section id="works" className="relative overflow-hidden py-20 ">
@@ -74,7 +43,7 @@ const Works = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={0.4 + index * 0.1}>
               <div className="group bg-[#121212]/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-[#7B61FF]/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#7B61FF]/20">
                 {/* Project Image */}
@@ -85,7 +54,7 @@ const Works = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#7B61FF] to-[#6366f1] opacity-20 group-hover:opacity-30 transition-opacity" />
                 </div>
 
                 {/* Project Content */}

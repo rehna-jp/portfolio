@@ -1,6 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Twitter, ArrowRight, Sparkles } from 'lucide-react';
-import megan from '../assets/megan.png';
+import precious from '../assets/precious.png';
 import SlideIn from './SlideIn';
 import { Link } from 'react-scroll';
 
@@ -94,26 +94,19 @@ const Bio = () => {
         {/* Right Content - Image/Avatar */}
         <SlideIn delay={1.0}>
           <div className="hidden lg:flex justify-center lg:justify-end">
-            <div className="relative w-72 h-72">
+            <div className="relative" style={{ width: '440px', height: '440px' }}>
               {/* Animated gradient rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#7B61FF]/30 to-[#6366f1]/30 blur-2xl animate-pulse" />
               <div className="absolute inset-6 rounded-full bg-gradient-to-br from-[#7B61FF]/20 to-transparent" style={{ animation: 'pulse 3s ease-in-out infinite' }} />
               
               {/* Avatar Container */}
               <div className="absolute inset-0 flex items-center justify-center">
-                {/* Option 1: Use image if available */}
-                <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-[#7B61FF]/30 shadow-2xl shadow-[#7B61FF]/20 relative group">
-                  {/* Uncomment to use image */}
-                  {/* <img 
-                    src={megan} 
+                <div className="overflow-hidden rounded-full border-4 border-[#7B61FF]/30 shadow-2xl shadow-[#7B61FF]/20 relative group" style={{ width: '360px', height: '360px' }}>
+                  <img 
+                    src={precious} 
                     alt="Precious Jeremy" 
                     className="w-full h-full object-cover"
-                  /> */}
-                  
-                  {/* Placeholder - Remove when using image */}
-                  <div className="w-full h-full bg-gradient-to-br from-[#7B61FF] to-[#6366f1] flex items-center justify-center">
-                    <span className="text-6xl font-bold text-white">PJ</span>
-                  </div>
+                  />
                   
                   {/* Overlay effect */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#7B61FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

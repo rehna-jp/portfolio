@@ -2,100 +2,85 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, Filter, ArrowLeft, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Static fallback screenshots — used ONLY if the live thum.io screenshot fails
+// to load (project goes offline, API hiccup, etc). Take one screenshot per
+// project, drop it in src/assets with these filenames (or update the paths).
+import flarerouteFallback from '../../assets/flareroute.png';
+import commitFallback from '../../assets/commit.png';
+import sigilFallback from '../../assets/sigil.png';
+import pulseaidFallback from '../../assets/pulseaid.png';
+import gmsFallback from '../../assets/gms.png';
+
+// Generates a live screenshot of a URL via thum.io (no API key needed).
+// Swap this helper if you later move to Microlink/urlbox — every project
+// image just calls this function, so it's a one-place change.
+const getScreenshot = (url) => `https://image.thum.io/get/width/800/crop/600/${url}`;
+
+export const projects = [
+  {
+    id: 1,
+    title: "FlareRoute",
+    description: "Non-custodial yield router for FXRP on Flare Network — compares TVL, share prices, and yield across venues in real time using FTSOv2 oracles, then routes deposits in a single transaction.",
+    tags: ["React", "Solidity", "Wagmi", "DeFi"],
+    category: "Web3",
+    demo: "https://flare-router.vercel.app/",
+    get image() { return getScreenshot(this.demo); },
+    fallbackImage: flarerouteFallback,
+    github: "https://github.com/rehna-jp/FlareRouter",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "Commit",
+    description: "Habit-accountability protocol on Solana — stake USDC on daily habits, get verified by AI, and earn from the pool of everyone who misses a day. Disputes and photo-reuse are handled entirely on-chain.",
+    tags: ["Solana", "Anchor", "Next.js", "AI"],
+    category: "Web3",
+    demo: "https://commit-gamma-two.vercel.app/",
+    get image() { return getScreenshot(this.demo); },
+    fallbackImage: commitFallback,
+    github: "https://github.com/rehna-jp/commit",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "Sigil",
+    description: "Persistent intent engine on Arbitrum — turns a plain-language financial goal into on-chain watchers that autonomously monitor conditions and re-trigger execution, closing the loop without a centralized bot.",
+    tags: ["Solidity", "Foundry", "AI", "Arbitrum"],
+    category: "Web3",
+    demo: "https://sigil-tau.vercel.app/",
+    get image() { return getScreenshot(this.demo); },
+    fallbackImage: sigilFallback,
+    github: "https://github.com/rehna-jp/Sigil",
+    featured: true
+  },
+  {
+    id: 4,
+    title: "PulseAid",
+    description: "Decentralized charitable giving platform using Zero-Knowledge Proofs — donations sit in escrow and only release once an institution submits cryptographic proof of impact, with automatic refunds on failure.",
+    tags: ["Next.js", "Solidity", "ZK Proofs", "DAO"],
+    category: "Web3",
+    demo: "https://pulse-aid-five.vercel.app/",
+    get image() { return getScreenshot(this.demo); },
+    fallbackImage: pulseaidFallback,
+    github: "https://github.com/rehna-jp/PulseAid",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "GMS — Government Project Monitoring System",
+    description: "GPS-verified infrastructure monitoring platform for Ghana — contractors submit geo-tagged photos, officials verify authenticity via Haversine distance checks, and citizens track spending on a public map.",
+    tags: ["Next.js", "TypeScript", "Supabase", "PWA"],
+    category: "Frontend",
+    demo: "https://gms-tau.vercel.app/",
+    get image() { return getScreenshot(this.demo); },
+    fallbackImage: gmsFallback,
+    github: "https://github.com/rehna-jp/GMS",
+    featured: false
+  }
+];
+
 const ProjectsList = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-
-  // Mock projects data - replace with your real projects
-  const projects = [
-    {
-      id: 1,
-      title: "DeFi Dashboard",
-      description: "A comprehensive Web3 dashboard for tracking DeFi portfolios across multiple chains with real-time analytics and transaction history.",
-      tags: ["React", "Wagmi", "Tailwind", "Web3"],
-      category: "Web3",
-      image: "https://via.placeholder.com/600x400/7B61FF/ffffff?text=DeFi+Dashboard",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "NFT Marketplace",
-      description: "Modern NFT marketplace built with Next.js featuring minting, trading, and auction functionality with IPFS storage.",
-      tags: ["Next.js", "Solidity", "Hardhat", "IPFS"],
-      category: "Web3",
-      image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=NFT+Marketplace",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "DAO Governance Platform",
-      description: "Decentralized autonomous organization platform with proposal creation, voting mechanisms, and treasury management.",
-      tags: ["React", "Solidity", "Web3", "Ethers.js"],
-      category: "Web3",
-      image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=DAO+Platform",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: true
-    },
-    {
-      id: 4,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce platform with payment integration, inventory management, and admin dashboard.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      category: "Frontend",
-      image: "https://via.placeholder.com/600x400/7B61FF/ffffff?text=E-Commerce",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, team workspaces, and project tracking.",
-      tags: ["React", "Firebase", "Tailwind"],
-      category: "Frontend",
-      image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=Task+Manager",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Portfolio Website",
-      description: "Modern portfolio website with smooth animations, dark mode, and responsive design.",
-      tags: ["React", "Tailwind", "Framer Motion"],
-      category: "Frontend",
-      image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Portfolio",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false
-    },
-    {
-      id: 7,
-      title: "Token Staking Platform",
-      description: "DeFi staking platform allowing users to stake tokens and earn rewards with flexible APY rates.",
-      tags: ["Solidity", "React", "Hardhat", "Web3"],
-      category: "Web3",
-      image: "https://via.placeholder.com/600x400/7B61FF/ffffff?text=Staking+Platform",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false
-    },
-    {
-      id: 8,
-      title: "Weather Dashboard",
-      description: "Real-time weather application with location search, 7-day forecast, and weather alerts.",
-      tags: ["React", "API", "Chart.js"],
-      category: "Frontend",
-      image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=Weather+App",
-      github: "https://github.com",
-      demo: "https://demo.com",
-      featured: false
-    }
-  ];
 
   const categories = ['All', 'Web3', 'Frontend'];
 
@@ -178,6 +163,14 @@ const ProjectsList = () => {
                 <img 
                   src={project.image} 
                   alt={project.title}
+                  loading="lazy"
+                  onError={(e) => {
+                    // Live screenshot failed to load — fall back to the static image.
+                    // Guard against an infinite loop if the fallback itself 404s.
+                    if (e.target.src !== project.fallbackImage) {
+                      e.target.src = project.fallbackImage;
+                    }
+                  }}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 {/* Featured badge */}

@@ -1,57 +1,92 @@
 import React from 'react';
-import { Terminal, Briefcase, GraduationCap, Code, Award, Calendar } from 'lucide-react';
+import { Terminal, Briefcase, GraduationCap, Users, Award, Calendar } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 const Experience = () => {
-  // Mock experience data - replace with your real data later
   const experiences = [
     {
       id: 1,
       type: 'work',
-      title: 'Blockchain Developer',
-      company: 'Web3 Startup',
-      location: 'Remote',
-      period: 'Jan 2024 - Present',
-      description: 'Developing smart contracts and DeFi applications using Solidity and React. Built NFT marketplace with 10k+ transactions.',
-      technologies: ['Solidity', 'React', 'Hardhat', 'Wagmi'],
+      title: 'Frontend Development Intern',
+      company: 'Node Eight Foundation',
+      location: 'Ghana',
+      period: 'Feb 2025 - Apr 2025',
+      description: 'Developed responsive web applications using React and modern frontend practices. Built reusable UI components, integrated third-party APIs for dynamic data-driven experiences, and collaborated in team environments using Git.',
+      technologies: ['React', 'Git', 'REST APIs', 'Responsive UI'],
       icon: <Briefcase className="w-5 h-5" />,
       color: 'from-[#7B61FF] to-[#6366f1]'
     },
     {
       id: 2,
-      type: 'education',
-      title: 'Bachelor of Science in Computer Science',
-      company: 'University Name',
-      location: 'City, Country',
-      period: 'Sep 2021 - Jun 2025',
-      description: 'Focused on software engineering, blockchain technology, and web development. GPA: 3.8/4.0',
-      technologies: ['Data Structures', 'Algorithms', 'Web Dev', 'Databases'],
-      icon: <GraduationCap className="w-5 h-5" />,
-      color: 'from-[#6366f1] to-[#8b5cf6]'
+      type: 'leadership',
+      title: 'Team1 Collaborator',
+      company: 'Avalanche (Team1)',
+      location: 'Remote',
+      period: '2026 - Present',
+      description: 'Contributing to the Avalanche ecosystem as a Team1 collaborator — producing weekly ecosystem recaps, quote-tweets, and community content for a crypto-native audience.',
+      technologies: ['Avalanche', 'Content Creation', 'Web3'],
+      icon: <Users className="w-5 h-5" />,
+      color: 'from-[#7B61FF] to-[#8b5cf6]'
     },
     {
       id: 3,
-      type: 'work',
-      title: 'Frontend Developer Intern',
-      company: 'Tech Company',
-      location: 'Remote',
-      period: 'Jun 2023 - Dec 2023',
-      description: 'Built responsive web applications using React and Tailwind CSS. Collaborated with design team to implement UI/UX improvements.',
-      technologies: ['React', 'TypeScript', 'Tailwind', 'Next.js'],
-      icon: <Code className="w-5 h-5" />,
-      color: 'from-[#8b5cf6] to-[#a855f7]'
+      type: 'leadership',
+      title: 'Dev3Pack Ghana Lead',
+      company: 'Dev3Pack',
+      location: 'Ghana',
+      period: 'Ongoing',
+      description: 'Leading Dev3Pack community efforts in Ghana — organizing builder engagement, running Web3 education initiatives, and connecting students to blockchain ecosystems.',
+      technologies: ['Community Building', 'Web3 Education', 'Solana'],
+      icon: <Users className="w-5 h-5" />,
+      color: 'from-[#6366f1] to-[#8b5cf6]'
     },
     {
       id: 4,
-      type: 'certification',
-      title: 'Blockchain Developer Certification',
-      company: 'Online Learning Platform',
-      location: 'Online',
-      period: 'Mar 2023',
-      description: 'Completed comprehensive blockchain development course covering Solidity, smart contracts, and DApp development.',
-      technologies: ['Solidity', 'Web3.js', 'Truffle', 'Ethereum'],
-      icon: <Award className="w-5 h-5" />,
+      type: 'leadership',
+      title: 'Community Manager, BB Club (Blockchain Builders Club)',
+      company: 'Ho Technical University',
+      location: 'Ho, Ghana',
+      period: 'Ongoing',
+      description: 'Manage the university blockchain community, running Builder Connect workshops that connect students to Web3 tooling and ecosystems, and coordinating hackathon and bounty participation.',
+      technologies: ['Community Management', 'Workshops', 'Web3'],
+      icon: <Users className="w-5 h-5" />,
+      color: 'from-[#8b5cf6] to-[#a855f7]'
+    },
+    {
+      id: 5,
+      type: 'education',
+      title: 'B.Tech, Information & Communication Technology',
+      company: 'Ho Technical University',
+      location: 'Ho, Ghana',
+      period: 'Expected 2027',
+      description: 'Second-year ICT student, 3.7 GPA. Coursework spans information security, data analysis, server administration, and mobile app development, alongside self-directed blockchain and smart contract study.',
+      technologies: ['ICT', 'Information Security', 'Data Analysis'],
+      icon: <GraduationCap className="w-5 h-5" />,
       color: 'from-[#a855f7] to-[#7B61FF]'
+    },
+    {
+      id: 6,
+      type: 'certification',
+      title: 'Cyfrin Updraft',
+      company: 'Cyfrin',
+      location: 'Online',
+      period: 'Completed',
+      description: 'Smart contract security and auditing training covering Solidity vulnerabilities, common exploit patterns, and audit methodology.',
+      technologies: ['Solidity', 'Smart Contract Auditing', 'Foundry'],
+      icon: <Award className="w-5 h-5" />,
+      color: 'from-[#7B61FF] to-[#6366f1]'
+    },
+    {
+      id: 7,
+      type: 'certification',
+      title: 'SheFi Scholar',
+      company: 'SheFi',
+      location: 'Online',
+      period: 'Completed',
+      description: 'Completed the SheFi blockchain and DeFi education program covering Web3 fundamentals, financial literacy, and decentralized finance.',
+      technologies: ['DeFi', 'Web3 Fundamentals'],
+      icon: <Award className="w-5 h-5" />,
+      color: 'from-[#6366f1] to-[#8b5cf6]'
     }
   ];
 
